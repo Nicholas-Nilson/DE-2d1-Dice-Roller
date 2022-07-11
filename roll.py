@@ -6,6 +6,8 @@ import random
 # roll 3 - produce three numbers and print them.
 #
 
+die_to_face = {1: '\u2680', 2: '\u2681', 3: '\u2682', 4: '\u2683', 5: '\u2684', 6: '\u2685'}
+
 def print_greeting():
     print("\n\n{:^50}".format("Welcome to Dice Roller v2.1.300 rev a.\n"))
     print("{:<50}".format("-Despite the name, you are allowed to roll only one die."))
@@ -43,11 +45,11 @@ def roll_number_of_times(num):
     for roll in range(num):
         if roll < num - 1:
             number = roll_die()
-            result += str(number) + ", "
+            result += die_to_face.get(number) + " "
             result_list.append(number)
         else:
             number = roll_die()
-            result += str(number)
+            result += die_to_face.get(number)
             result_list.append(number)
     return [result, result_list]
 
